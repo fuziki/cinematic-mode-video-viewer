@@ -1,0 +1,436 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		77773BFD2B79DFAF0042C605 /* cinematic_mode_video_viewerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77773BFC2B79DFAF0042C605 /* cinematic_mode_video_viewerApp.swift */; };
+		77773BFF2B79DFAF0042C605 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77773BFE2B79DFAF0042C605 /* ContentView.swift */; };
+		77773C012B79DFB00042C605 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77773C002B79DFB00042C605 /* Assets.xcassets */; };
+		77773C042B79DFB00042C605 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77773C032B79DFB00042C605 /* Preview Assets.xcassets */; };
+		77773C0B2B79E0020042C605 /* MyARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77773C0A2B79E0020042C605 /* MyARView.swift */; };
+		77773C0E2B79E0370042C605 /* DisplayLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77773C0D2B79E0370042C605 /* DisplayLink.swift */; };
+		77773C122B79E0CA0042C605 /* CinematicVideoReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77773C112B79E0CA0042C605 /* CinematicVideoReader.swift */; };
+		77773C142B79E0F40042C605 /* MeshResource+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77773C132B79E0F40042C605 /* MeshResource+Extensions.swift */; };
+		77773C172B79E1790042C605 /* custom_material.metal in Sources */ = {isa = PBXBuildFile; fileRef = 77773C162B79E1790042C605 /* custom_material.metal */; };
+		77773C192B79E18F0042C605 /* kernel.ci.metal in Sources */ = {isa = PBXBuildFile; fileRef = 77773C182B79E18F0042C605 /* kernel.ci.metal */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildRule section */
+		77773C1A2B79E1AC0042C605 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			filePatterns = "*.ci.metal";
+			fileType = pattern.proxy;
+			inputFiles = (
+			);
+			isEditable = 1;
+			outputFiles = (
+				"$(DERIVED_FILE_DIR)/$(INPUT_FILE_BASE).air",
+			);
+			script = "xcrun metal -c -fcikernel \"${INPUT_FILE_PATH}\" -o \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+		};
+		77773C1B2B79E1CB0042C605 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			filePatterns = "*.ci.air";
+			fileType = pattern.proxy;
+			inputFiles = (
+			);
+			isEditable = 1;
+			outputFiles = (
+				"$(METAL_LIBRARY_OUTPUT_DIR)/$(INPUT_FILE_BASE).metallib",
+			);
+			script = "xcrun metallib -cikernel \"${INPUT_FILE_PATH}\" -o \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+		};
+/* End PBXBuildRule section */
+
+/* Begin PBXFileReference section */
+		77773BF92B79DFAF0042C605 /* cinematic-mode-video-viewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "cinematic-mode-video-viewer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		77773BFC2B79DFAF0042C605 /* cinematic_mode_video_viewerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cinematic_mode_video_viewerApp.swift; sourceTree = "<group>"; };
+		77773BFE2B79DFAF0042C605 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		77773C002B79DFB00042C605 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		77773C032B79DFB00042C605 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		77773C0A2B79E0020042C605 /* MyARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyARView.swift; sourceTree = "<group>"; };
+		77773C0D2B79E0370042C605 /* DisplayLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayLink.swift; sourceTree = "<group>"; };
+		77773C112B79E0CA0042C605 /* CinematicVideoReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinematicVideoReader.swift; sourceTree = "<group>"; };
+		77773C132B79E0F40042C605 /* MeshResource+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MeshResource+Extensions.swift"; sourceTree = "<group>"; };
+		77773C162B79E1790042C605 /* custom_material.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = custom_material.metal; sourceTree = "<group>"; };
+		77773C182B79E18F0042C605 /* kernel.ci.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = kernel.ci.metal; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		77773BF62B79DFAF0042C605 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		77773BF02B79DFAF0042C605 = {
+			isa = PBXGroup;
+			children = (
+				77773BFB2B79DFAF0042C605 /* cinematic-mode-video-viewer */,
+				77773BFA2B79DFAF0042C605 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		77773BFA2B79DFAF0042C605 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				77773BF92B79DFAF0042C605 /* cinematic-mode-video-viewer.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		77773BFB2B79DFAF0042C605 /* cinematic-mode-video-viewer */ = {
+			isa = PBXGroup;
+			children = (
+				77773BFC2B79DFAF0042C605 /* cinematic_mode_video_viewerApp.swift */,
+				77773C0F2B79E0A40042C605 /* View */,
+				77773C102B79E0BA0042C605 /* Cinematic */,
+				77773C0C2B79E02A0042C605 /* Utils */,
+				77773C152B79E1260042C605 /* Shader */,
+				77773C002B79DFB00042C605 /* Assets.xcassets */,
+				77773C022B79DFB00042C605 /* Preview Content */,
+			);
+			path = "cinematic-mode-video-viewer";
+			sourceTree = "<group>";
+		};
+		77773C022B79DFB00042C605 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				77773C032B79DFB00042C605 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		77773C0C2B79E02A0042C605 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				77773C0D2B79E0370042C605 /* DisplayLink.swift */,
+				77773C132B79E0F40042C605 /* MeshResource+Extensions.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		77773C0F2B79E0A40042C605 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				77773BFE2B79DFAF0042C605 /* ContentView.swift */,
+				77773C0A2B79E0020042C605 /* MyARView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		77773C102B79E0BA0042C605 /* Cinematic */ = {
+			isa = PBXGroup;
+			children = (
+				77773C112B79E0CA0042C605 /* CinematicVideoReader.swift */,
+			);
+			path = Cinematic;
+			sourceTree = "<group>";
+		};
+		77773C152B79E1260042C605 /* Shader */ = {
+			isa = PBXGroup;
+			children = (
+				77773C162B79E1790042C605 /* custom_material.metal */,
+				77773C182B79E18F0042C605 /* kernel.ci.metal */,
+			);
+			path = Shader;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		77773BF82B79DFAF0042C605 /* cinematic-mode-video-viewer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 77773C072B79DFB00042C605 /* Build configuration list for PBXNativeTarget "cinematic-mode-video-viewer" */;
+			buildPhases = (
+				77773BF52B79DFAF0042C605 /* Sources */,
+				77773BF62B79DFAF0042C605 /* Frameworks */,
+				77773BF72B79DFAF0042C605 /* Resources */,
+			);
+			buildRules = (
+				77773C1A2B79E1AC0042C605 /* PBXBuildRule */,
+				77773C1B2B79E1CB0042C605 /* PBXBuildRule */,
+			);
+			dependencies = (
+			);
+			name = "cinematic-mode-video-viewer";
+			productName = "cinematic-mode-video-viewer";
+			productReference = 77773BF92B79DFAF0042C605 /* cinematic-mode-video-viewer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		77773BF12B79DFAF0042C605 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					77773BF82B79DFAF0042C605 = {
+						CreatedOnToolsVersion = 15.2;
+					};
+				};
+			};
+			buildConfigurationList = 77773BF42B79DFAF0042C605 /* Build configuration list for PBXProject "cinematic-mode-video-viewer" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 77773BF02B79DFAF0042C605;
+			productRefGroup = 77773BFA2B79DFAF0042C605 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				77773BF82B79DFAF0042C605 /* cinematic-mode-video-viewer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		77773BF72B79DFAF0042C605 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				77773C042B79DFB00042C605 /* Preview Assets.xcassets in Resources */,
+				77773C012B79DFB00042C605 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		77773BF52B79DFAF0042C605 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				77773C0E2B79E0370042C605 /* DisplayLink.swift in Sources */,
+				77773C172B79E1790042C605 /* custom_material.metal in Sources */,
+				77773BFF2B79DFAF0042C605 /* ContentView.swift in Sources */,
+				77773C192B79E18F0042C605 /* kernel.ci.metal in Sources */,
+				77773C122B79E0CA0042C605 /* CinematicVideoReader.swift in Sources */,
+				77773C0B2B79E0020042C605 /* MyARView.swift in Sources */,
+				77773C142B79E0F40042C605 /* MeshResource+Extensions.swift in Sources */,
+				77773BFD2B79DFAF0042C605 /* cinematic_mode_video_viewerApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		77773C052B79DFB00042C605 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		77773C062B79DFB00042C605 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		77773C082B79DFB00042C605 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"cinematic-mode-video-viewer/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yourcompany.cinematic-mode-video-viewer";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		77773C092B79DFB00042C605 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"cinematic-mode-video-viewer/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yourcompany.cinematic-mode-video-viewer";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		77773BF42B79DFAF0042C605 /* Build configuration list for PBXProject "cinematic-mode-video-viewer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				77773C052B79DFB00042C605 /* Debug */,
+				77773C062B79DFB00042C605 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		77773C072B79DFB00042C605 /* Build configuration list for PBXNativeTarget "cinematic-mode-video-viewer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				77773C082B79DFB00042C605 /* Debug */,
+				77773C092B79DFB00042C605 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 77773BF12B79DFAF0042C605 /* Project object */;
+}
