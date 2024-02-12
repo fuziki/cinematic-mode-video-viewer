@@ -26,11 +26,12 @@ struct ContentView : View {
             } set: { newItem in
                 vm.onFetch(newItem: newItem)
             }
-            PhotosPicker("Select Cinematic Video",
-                         selection: selection,
+            PhotosPicker(selection: selection,
                          matching: .cinematicVideos,
-                         photoLibrary: .shared())
-                .padding()
+                         photoLibrary: .shared()) {
+                Label("Select Cinematic Video", systemImage: "photo")
+            }
+            .buttonStyle(.borderedProminent)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(.lightGray).ignoresSafeArea())
@@ -69,21 +70,23 @@ class ContentViewModel: ObservableObject {
     let far = CurrentValueSubject<Float, Never>(4)
 
     func onFetch(newItem: PhotosPickerItem?) {
-        guard let itemIdentifier = newItem?.itemIdentifier else { return }
-        let phAssets: PHFetchResult = PHAsset.fetchAssets(withLocalIdentifiers: [itemIdentifier], options: nil)
-        let phAsset = phAssets.lastObject!
+        PHPhotoLibrary.requestAuthorization { _ in
+            guard let itemIdentifier = newItem?.itemIdentifier else { return }
+            let phAssets: PHFetchResult = PHAsset.fetchAssets(withLocalIdentifiers: [itemIdentifier], options: nil)
+            let phAsset = phAssets.lastObject!
 
-        let resources = PHAssetResource.assetResources(for: phAsset)
-        print("originalFilenames: \(resources.map({ $0.originalFilename }))")
+            let resources = PHAssetResource.assetResources(for: phAsset)
+            print("originalFilenames: \(resources.map({ $0.originalFilename }))")
 
-        let options = PHVideoRequestOptions()
-        options.isNetworkAccessAllowed = true
-        options.version = .original
-        options.deliveryMode = .highQualityFormat
+            let options = PHVideoRequestOptions()
+            options.isNetworkAccessAllowed = true
+            options.version = .original
+            options.deliveryMode = .highQualityFormat
 
-        PHImageManager.default().requestAVAsset(forVideo: phAsset, options: options) { [weak self] asset, _, _ in
-            DispatchQueue.main.async {
-                self?.asset = asset
+            PHImageManager.default().requestAVAsset(forVideo: phAsset, options: options) { [weak self] asset, _, _ in
+                DispatchQueue.main.async {
+                    self?.asset = asset
+                }
             }
         }
     }
