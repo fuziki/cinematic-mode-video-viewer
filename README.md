@@ -12,7 +12,7 @@ The app dynamically distorts the video based on the captured depth.
 
 ## Screenshots
 
-WIP
+<img src="docs/demo.gif">
 
 ## Implementation Details
 
