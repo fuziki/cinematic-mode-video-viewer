@@ -3,6 +3,8 @@
 cinematic-mode-video-viewer is an iOS application that displays Apple's Cinematic Mode videos.  
 The app dynamically distorts the video based on the captured depth.
 
+<img src="docs/demo.gif">
+
 ## Features
 
 - Display Apple's Cinematic Mode videos.
@@ -10,9 +12,6 @@ The app dynamically distorts the video based on the captured depth.
 - Supports iOS 17 and Xcode 15 or later.
 - Compatible with iPhone and iPad devices (physical devices only).
 
-## Screenshots
-
-<img src="docs/demo.gif">
 
 ## Implementation Details
 
